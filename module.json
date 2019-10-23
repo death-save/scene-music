@@ -1,0 +1,10 @@
+{
+  "name":"scene-music",
+  "title":"Scene Music",
+  "author":"Evan Clarke (errational#2007)",
+  "version":"0.1",
+  "scripts":"./scene-music.js",
+  "manifest":"",
+  "download":"",
+  "url":""
+}
