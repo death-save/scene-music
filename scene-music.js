@@ -1,11 +1,4 @@
-//create flag on scene entity to store a playlist id
-
-
-//hook on sceneconfig render add a dropdown to the scene config to select the playlist
 class SceneMusic {
-    constructor() {
-        this.data = {}
-    }
 
     init() {
         this._hookOnRenderSceneSheet();
@@ -16,7 +9,7 @@ class SceneMusic {
         return {
             moduleName: "scene-music",
             flagName: "playlistId",
-            templatePath: 'public/modules/scene-music/templates/playlist-select.html'
+            templatePath: "public/modules/scene-music/templates/playlist-select.html"
         }
     }
 
@@ -24,7 +17,7 @@ class SceneMusic {
         return {
             moduleName: this.DEFAULT_CONFIG.moduleName,
             flagName: this.DEFAULT_CONFIG.flagName,
-            scenePlaylistFlag: game.scenes.get(scene.id).getFlag(this.DEFAULT_CONFIG.moduleName, this.DEFAULT_CONFIG.flagName),
+            scenePlaylistFlag: game.scenes.get(scene.id).getFlag(this.DEFAULT_CONFIG.moduleName, this.DEFAULT_CONFIG.flagName) || " ",
             playlists: game.playlists.entities || []
         }
     }
@@ -40,7 +33,6 @@ class SceneMusic {
             const scenePlaylistFlag = scene.getFlag(this.DEFAULT_CONFIG.moduleName, this.DEFAULT_CONFIG.flagName);
 
             if ( scenePlaylistFlag && updateData.active === true ) {
-                console.log(`Scene ${scene.name} is now Active`);
                 this._playPlaylist(scenePlaylistFlag);
             }
         });
@@ -58,12 +50,10 @@ class SceneMusic {
         const playlist = game.playlists.get(playlistId);
 
         if (playlist) {
-            playlist.play();
+            playlist.playAll();
         }
     }
 }
 
 const sceneMusic = new SceneMusic();
 sceneMusic.init();
-
-//hook on scene update and if it's active and has the flag set, play the playlist

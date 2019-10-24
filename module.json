@@ -4,8 +4,9 @@
   "description":"Plays a selected playlist on scene activation",
   "author":"Evan Clarke (errational#2007)",
   "version":"0.1",
+  "minimumCoreVersion":"0.3.9",
   "scripts":["./scene-music.js"],
-  "manifest":"",
-  "download":"",
-  "url":""
+  "manifest":"https://raw.githubusercontent.com/death-save/scene-music/master/module.json",
+  "download": "https://github.com/death-save/scene-music/archive/master.zip",
+  "url": "https://github.com/death-save/scene-music"
 }
