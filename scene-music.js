@@ -49,7 +49,7 @@ class SceneMusic {
     _playPlaylist(playlistId) {
         const playlist = game.playlists.get(playlistId);
 
-        if (playlist) {
+        if (playlist && playlist.length > 0) {
             playlist.playAll();
         }
     }
